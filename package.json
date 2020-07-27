@@ -4,20 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc" : "node_modules/.bin/tsc"
+    "tsc": "node_modules/.bin/tsc",
+    "build": "webpack --mode=development",
+    "start": "webpack-dev-server --mode=development"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SakumaTakuya/labaled_mark.github.io.git"
+    "url": "git+https://github.com/SakumaTakuya/labaled_mark.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SakumaTakuya/labaled_mark.github.io/issues"
+    "url": "https://github.com/SakumaTakuya/labaled_mark/issues"
   },
-  "homepage": "https://github.com/SakumaTakuya/labaled_mark.github.io#readme",
+  "homepage": "https://github.com/SakumaTakuya/labaled_mark#readme",
   "dependencies": {
     "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "ts-loader": "^8.0.1",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
