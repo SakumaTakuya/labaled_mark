@@ -25,5 +25,5 @@ if (div != null) {
     });
 
     const md = marked(div.innerHTML);
-    div.innerHTML = labeler.reference(md);
+    div.innerHTML = labeler.resolveReference(md);
 }

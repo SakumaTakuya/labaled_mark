@@ -1,19 +1,19 @@
 export interface Labeler {
-    label(text : string, label: Label) : { text:string; caption:string; index:string; };
-    reference(text : string) : string;
+    registerLabel(text : string, label: Label) : { text:string; caption:string; index:string; };
+    resolveReference(text : string) : string;
 }
 
 interface Reference {
     [label : string]: string;
 }
 
-interface Label {
-    next() : string;
+export interface Label {
+    getNext() : string;
 }
 
 export class NumericalLabel implements Label {
     private id : number = 0;
-    next(): string {
+    getNext() : string {
         this.id++;
         return this.id.toString();
     }
@@ -21,7 +21,7 @@ export class NumericalLabel implements Label {
 
 export class ArrayLabel implements Label {
     private arrayId : Array<number>;
-    private currentLevel :number;
+    private currentLevel : number;
     private arrayLength : number;
 
     constructor(level : number) {
@@ -34,7 +34,7 @@ export class ArrayLabel implements Label {
         this.currentLevel = value;
     }
 
-    next(): string {
+    getNext() : string {
         if (this.currentLevel > 1) {
             this.arrayId[this.currentLevel-1]++;
         }
@@ -57,7 +57,7 @@ export class LatexLabeler implements Labeler {
         this.refExp = refExp;
     }
 
-    label(text: string, label: Label): { text: string; caption: string; index:string; } {
+    registerLabel(text: string, label: Label): { text: string; caption: string; index:string; } {
         const arr = text.split(this.labelExp);
 
         let desc = arr.splice(1,1)[0];
@@ -65,13 +65,13 @@ export class LatexLabeler implements Labeler {
         if (desc != null) {
           [desc, capt] = desc.split(",");
         }
-        const index = label.next()
+        const index = label.getNext()
         this.refDict[desc] = index;
       
         return { text:arr.join(""), caption:capt, index:index };
     }
 
-    reference(text: string): string {
+    resolveReference(text: string): string {
         return text.replace(
             this.refExp, 
             (_, p1, __, ___) => this.refDict[p1]);
