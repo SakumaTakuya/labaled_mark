@@ -23,7 +23,7 @@ export class LabeledRenderer extends marked.Renderer {
         const label = this.labeler.registerLabel(header, this.tableLabel);
         return `<table>
                     <caption>
-                        表${label.index}. ${label.caption}
+                        表${label.index}.\t${label.caption}
                     </caption>
                     <thead>
                         ${label.text}
@@ -36,18 +36,16 @@ export class LabeledRenderer extends marked.Renderer {
         const label = this.labeler.registerLabel(text, this.imgLabel);
         return `<figure>
                     <img src="${href}" alt="${label.text}">
-                    <figcaption>図${label.index}. ${label.caption}</figcaption>
+                    <figcaption>図${label.index}.\t${label.caption}</figcaption>
                 </figure>`;
     }
 
     code(code: string, language: string | undefined, isEscaped: boolean): string {
         const label = this.labeler.registerLabel(language || '', this.codeLabel);
         const html = super.code(code, label.text, isEscaped);
-        console.log(code);
         return `<figure>
-                    <figcaption>ソースコード${label.index}. ${label.caption}</figcaption>
+                    <figcaption>ソースコード${label.index}.\t${label.caption}</figcaption>
                     ${html}
                 </figure>`;
     }
-    
 }

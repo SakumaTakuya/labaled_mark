@@ -25,7 +25,7 @@ export class ArrayLabel implements Label {
     private arrayLength : number;
 
     constructor(level : number) {
-        this.arrayId = new Array<number>(level);
+        this.arrayId = new Array<number>(level).fill(0);
         this.currentLevel = 0;
         this.arrayLength = level;
     }
@@ -63,7 +63,7 @@ export class LatexLabeler implements Labeler {
         let desc = arr.splice(1,1)[0];
         let capt = "";
         if (desc != null) {
-          [desc, capt] = desc.split(",");
+          [desc, capt] = desc.split(/,\s*/);
         }
         const index = label.getNext()
         this.refDict[desc] = index;

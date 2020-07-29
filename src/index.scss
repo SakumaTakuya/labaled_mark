@@ -1,0 +1,112 @@
+$colors1:#d60068;
+$colors2:#ba1a76;
+$colors3:#a53b8c;
+$colors4:#a47cc7;
+$colors5:#a5a5e7;
+$colors6:#7da2d2;
+$colors7:#3f9bbe;
+$colors8:#1ab0c9;
+$colors9:#00c8d6;
+
+// https://colormixer.web.app/01425c5ceaf0f0090000d632643c0201/dark
+$dark1:#425c66;
+$dark2:#586f95;
+$dark3:#6c81c3;
+$dark4:#8294e4;
+$dark5:#96a6f1;
+$dark6:#acb9ed;
+$dark7:#c0cbe6;
+$dark8:#d6dee7;
+$dark9:#eaf0f1;
+
+$re100vh: calc(100vh - 3.5rem);
+
+// 例えば角丸設定を上書きする
+$enable-rounded: false;
+
+// フォントを変える
+$font-family-base: serif;
+
+// テーマカラー設定
+$theme-colors: (
+  "primary": #d60068,
+  "secondary" : #00c8d6,
+  "dark" : #425c66,
+  "light" : #eaf0f1
+);
+
+// ヒーロースペースの背景色
+$jumbotron-bg: #d9f5ff;
+
+.bg-darkgrad {
+  background: linear-gradient(-45deg, $dark1, $dark3, $dark6, $dark9);
+}
+
+.bg-colorgrad {
+  background: linear-gradient(-45deg, $colors1, $colors3, $colors6, $colors9);
+}
+
+.editor {
+  overflow-y: scroll;
+  height: $re100vh;
+  padding: 1em;
+
+  textarea {
+    border: none;
+    background-color: rgba($color: #000000, $alpha: 0.0);
+    &:focus{
+      outline-width: 0px;
+    }
+  }
+}
+
+.fit_textarea {
+  overflow-y: hidden;
+  resize: none;
+  width: 100%;
+  height: inherit;
+}
+
+.markdown {
+  overflow-y: scroll;
+  height: $re100vh;
+  padding: 1em;
+
+  font-family:  "游明朝", YuMincho, "Hiragino Mincho ProN W3", 
+                "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", 
+                "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+  h2, h3, h4, h5, h6{
+    margin-bottom: 0.5em; 
+    margin-top: 1.5em; 
+    font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", 
+                  "Helvetica Neue", Helvetica, Roboto, Arial, 
+                  "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", 
+                  Osaka, Meiryo, "メイリオ", "MS Gothic", "ＭＳ ゴシック", 
+                  sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+                  "Segoe UI Symbol"; 
+  }
+  h1, figcaption, table{ 
+    text-align: center 
+  }
+  figure { 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+    img {
+      max-width: 100%;
+    }
+  }
+  p { 
+    text-indent: 1em; 
+    margin-bottom: 0; 
+    margin-top: 0; 
+  }
+  ol, ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+/* Bootstrap を読み込む */
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~highlight.js/scss/github.scss";
