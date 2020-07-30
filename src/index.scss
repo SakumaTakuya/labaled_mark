@@ -25,7 +25,9 @@ $re100vh: calc(100vh - 3.5rem);
 $enable-rounded: false;
 
 // フォントを変える
-$font-family-base: serif;
+$font-family-base:  "游明朝", YuMincho, "Hiragino Mincho ProN W3", 
+                    "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", 
+                    "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 
 // テーマカラー設定
 $theme-colors: (
@@ -38,33 +40,25 @@ $theme-colors: (
 // ヒーロースペースの背景色
 $jumbotron-bg: #d9f5ff;
 
-.bg-darkgrad {
-  background: linear-gradient(-45deg, $dark1, $dark3, $dark6, $dark9);
-}
-
-.bg-colorgrad {
-  background: linear-gradient(-45deg, $colors1, $colors3, $colors6, $colors9);
-}
-
 .editor {
-  overflow-y: scroll;
   height: $re100vh;
-  padding: 1em;
+  font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", 
+                "Helvetica Neue", Helvetica, Roboto, Arial, 
+                "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", 
+                Osaka, Meiryo, "メイリオ", "MS Gothic", "ＭＳ ゴシック", 
+                sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+                "Segoe UI Symbol"; 
+  padding: 0px !important;
 
-  textarea {
-    border: none;
-    background-color: rgba($color: #000000, $alpha: 0.0);
-    &:focus{
-      outline-width: 0px;
+  .CodeMirror {
+    overflow-y: visible;
+    min-height: $re100vh;
+    
+
+    * {
+      font-size: 1rem;
     }
   }
-}
-
-.fit_textarea {
-  overflow-y: hidden;
-  resize: none;
-  width: 100%;
-  height: inherit;
 }
 
 .markdown {
@@ -72,9 +66,6 @@ $jumbotron-bg: #d9f5ff;
   height: $re100vh;
   padding: 1em;
 
-  font-family:  "游明朝", YuMincho, "Hiragino Mincho ProN W3", 
-                "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", 
-                "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
   h2, h3, h4, h5, h6{
     margin-bottom: 0.5em; 
     margin-top: 1.5em; 
@@ -90,10 +81,24 @@ $jumbotron-bg: #d9f5ff;
   }
   figure { 
     display: block; 
-    margin-left: auto; 
-    margin-right: auto;
+    margin: 1rem auto;
     img {
       max-width: 100%;
+    }
+  }
+  table {
+    margin: 1rem auto;
+    
+    thead {
+      border-top: double 3px black;
+      border-bottom: solid 1px black;
+    }
+    tbody {
+      border-bottom: solid 1px black;
+    }
+    caption {
+      caption-side: top;
+      text-align: center;
     }
   }
   p { 
@@ -110,3 +115,5 @@ $jumbotron-bg: #d9f5ff;
 /* Bootstrap を読み込む */
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~highlight.js/scss/github.scss";
+@import "~codemirror/lib/codemirror.css";
+@import "~codemirror/theme/3024-night.css";

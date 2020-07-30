@@ -20,10 +20,13 @@
   },
   "homepage": "https://github.com/SakumaTakuya/labaled_mark#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "@popperjs/core": "^2.4.4",
+    "@types/codemirror": "0.0.97",
     "@types/highlight.js": "^9.12.4",
     "@types/marked": "^1.1.0",
     "bootstrap": "^4.5.0",
+    "codemirror": "^5.56.0",
     "highlight": "^0.2.4",
     "highlight.js": "^10.1.2",
     "jquery": "^3.5.1",
