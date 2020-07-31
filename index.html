@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello typescript</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="markdown" id="print_area"></div>
+    <header class="sticky-top print_omit">
+      <nav class="navbar navbar-expand-lg shadow">
+        <span class="navbar-brand text-dark">
+          Labeled Markdown
+        </span>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="" id="printer" data-target="#markdown_preview">
+              <i class="fas fa-print"></i> Print
+            </a>
+          </li>
+        </ul>
+        <button
+          class="navbar-toggler navbar-light"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <form class="form-inline my-2 my-lg-0 ml-auto">
+            <div class="btn-group btn-group-toggle view-switch" data-toggle="buttons">
+              <label class="btn btn-secondary">
+                <input
+                  type="radio"
+                  autocomplete="off"
+                  data-show="#edit-area"
+                  data-hide="#preview-area"
+                />
+                <i class="fas fa-pen"></i> Write
+              </label>
+              <label class="btn btn-secondary active">
+                <input
+                  type="radio"
+                  autocomplete="off"
+                  data-show="#edit-area, #preview-area"
+                  checked
+                />
+                <i class="fas fa-columns"></i> Separate
+              </label>
+              <label class="btn btn-secondary">
+                <input
+                  type="radio"
+                  autocomplete="off"
+                  data-show="#preview-area"
+                  data-hide="#edit-area"
+                />
+                <i class="far fa-eye"></i> View
+              </label>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container-fluid print_omit">
+      <div class="row">
+        <div class="col border-right editor" id="edit-area">
+          <textarea name="article" id="markdown_editor_textarea" class="fit_textarea"></textarea>
+        </div>
+        <div class="col markdown bg-light" id="preview-area">
+          <div class="bg-white mx-auto shadow a4">
+            <div id="markdown_preview"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
