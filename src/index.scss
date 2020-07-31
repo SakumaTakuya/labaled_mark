@@ -36,26 +36,5 @@ $theme-colors: (
 // ヒーロースペースの背景色
 $jumbotron-bg: #d9f5ff;
 
-html {
-  font-size: 11pt;
-}
-
-@media print {
-  * {
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* IE, Edge 対応 */
-    scrollbar-width: none; /* Firefox 対応 */
-  }
-
-  *::-webkit-scrollbar {
-    /* Chrome, Safari 対応 */
-    display: none;
-  }
-
-  .print_omit {
-    display: none;
-  }
-}
-
 @import '~bootstrap/scss/bootstrap.scss';
 @import './mark/theme.scss';
