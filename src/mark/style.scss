@@ -1,0 +1,55 @@
+.markdown {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.5em;
+    margin-top: 1.5em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto,
+      Arial, 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Osaka, Meiryo, 'メイリオ',
+      'MS Gothic', 'ＭＳ ゴシック', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+  }
+  h1,
+  figcaption,
+  table {
+    text-align: center;
+  }
+  figure {
+    display: block;
+    margin: 1em auto;
+    img {
+      max-width: 100%;
+    }
+  }
+  table {
+    margin: 1em auto;
+
+    thead {
+      border-top: double 3px black;
+      border-bottom: solid 1px black;
+    }
+    tbody {
+      border-bottom: solid 1px black;
+    }
+    caption {
+      caption-side: top;
+      text-align: center;
+    }
+  }
+  p {
+    text-indent: 1em;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  ol,
+  ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+@import '~highlight.js/scss/github.scss';
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/3024-night.css';

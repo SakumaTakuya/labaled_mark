@@ -1,119 +1,60 @@
-$colors1:#d60068;
-$colors2:#ba1a76;
-$colors3:#a53b8c;
-$colors4:#a47cc7;
-$colors5:#a5a5e7;
-$colors6:#7da2d2;
-$colors7:#3f9bbe;
-$colors8:#1ab0c9;
-$colors9:#00c8d6;
+$colors1: #d60068;
+$colors2: #ba1a76;
+$colors3: #a53b8c;
+$colors4: #a47cc7;
+$colors5: #a5a5e7;
+$colors6: #7da2d2;
+$colors7: #3f9bbe;
+$colors8: #1ab0c9;
+$colors9: #00c8d6;
 
 // https://colormixer.web.app/01425c5ceaf0f0090000d632643c0201/dark
-$dark1:#425c66;
-$dark2:#586f95;
-$dark3:#6c81c3;
-$dark4:#8294e4;
-$dark5:#96a6f1;
-$dark6:#acb9ed;
-$dark7:#c0cbe6;
-$dark8:#d6dee7;
-$dark9:#eaf0f1;
+$dark1: #425c66;
+$dark2: #586f95;
+$dark3: #6c81c3;
+$dark4: #8294e4;
+$dark5: #96a6f1;
+$dark6: #acb9ed;
+$dark7: #c0cbe6;
+$dark8: #d6dee7;
+$dark9: #eaf0f1;
 
-$re100vh: calc(100vh - 3.5rem);
-
-// 例えば角丸設定を上書きする
 $enable-rounded: false;
 
 // フォントを変える
-$font-family-base:  "游明朝", YuMincho, "Hiragino Mincho ProN W3", 
-                    "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", 
-                    "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+$font-family-base: '游明朝', YuMincho, 'Hiragino Mincho ProN W3', 'ヒラギノ明朝 ProN W3',
+  'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
 
 // テーマカラー設定
 $theme-colors: (
-  "primary": #d60068,
-  "secondary" : #00c8d6,
-  "dark" : #425c66,
-  "light" : #eaf0f1
+  'primary': #d60068,
+  'secondary': #00c8d6,
+  'dark': #425c66,
+  'light': #eaf0f1,
 );
 
 // ヒーロースペースの背景色
 $jumbotron-bg: #d9f5ff;
 
-.editor {
-  height: $re100vh;
-  font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", 
-                "Helvetica Neue", Helvetica, Roboto, Arial, 
-                "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", 
-                Osaka, Meiryo, "メイリオ", "MS Gothic", "ＭＳ ゴシック", 
-                sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-                "Segoe UI Symbol"; 
-  padding: 0px !important;
+html {
+  font-size: 11pt;
+}
 
-  .CodeMirror {
-    overflow-y: visible;
-    min-height: $re100vh;
-    
+@media print {
+  * {
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+  }
 
-    * {
-      font-size: 1rem;
-    }
+  *::-webkit-scrollbar {
+    /* Chrome, Safari 対応 */
+    display: none;
+  }
+
+  .print_omit {
+    display: none;
   }
 }
 
-.markdown {
-  overflow-y: scroll;
-  height: $re100vh;
-  padding: 1em;
-
-  h2, h3, h4, h5, h6{
-    margin-bottom: 0.5em; 
-    margin-top: 1.5em; 
-    font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", 
-                  "Helvetica Neue", Helvetica, Roboto, Arial, 
-                  "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", 
-                  Osaka, Meiryo, "メイリオ", "MS Gothic", "ＭＳ ゴシック", 
-                  sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-                  "Segoe UI Symbol"; 
-  }
-  h1, figcaption, table{ 
-    text-align: center 
-  }
-  figure { 
-    display: block; 
-    margin: 1rem auto;
-    img {
-      max-width: 100%;
-    }
-  }
-  table {
-    margin: 1rem auto;
-    
-    thead {
-      border-top: double 3px black;
-      border-bottom: solid 1px black;
-    }
-    tbody {
-      border-bottom: solid 1px black;
-    }
-    caption {
-      caption-side: top;
-      text-align: center;
-    }
-  }
-  p { 
-    text-indent: 1em; 
-    margin-bottom: 0; 
-    margin-top: 0; 
-  }
-  ol, ul {
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-}
-
-/* Bootstrap を読み込む */
-@import "~bootstrap/scss/bootstrap.scss";
-@import "~highlight.js/scss/github.scss";
-@import "~codemirror/lib/codemirror.css";
-@import "~codemirror/theme/3024-night.css";
+@import '~bootstrap/scss/bootstrap.scss';
