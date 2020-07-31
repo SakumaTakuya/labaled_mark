@@ -50,7 +50,7 @@ if (textArea != null && previewArea != null) {
     },
     lineNumbers: true,
     lineWrapping: true,
-    theme: 'default',
+    theme: 'custom',
   });
 
   editArea.on('keyup', (_) => {

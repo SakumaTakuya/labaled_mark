@@ -12,7 +12,7 @@ $re100vh: calc(100vh - 3.5rem);
 
   .CodeMirror {
     overflow-y: visible;
-    min-height: inherit;
+    min-height: $re100vh;
 
     * {
       font-size: 1rem;

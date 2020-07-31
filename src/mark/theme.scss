@@ -1,0 +1,108 @@
+:root {
+  // https://colormixer.web.app/06425c5ceaf0f00bd6000000643c0200d6d60014641e000000d60028641e000000d6d63c641e00000000d650641e0000d600d664641e0000/rainbow
+  --rainbow1: #de7c44;
+  --rainbow2: #d7ba1c;
+  --rainbow3: #9cd600;
+  --rainbow4: #33d109;
+  --rainbow5: #00d637;
+  --rainbow6: #0bd3aa;
+  --rainbow7: #00a0d6;
+  --rainbow8: #0d38d5;
+  --rainbow9: #3700d6;
+  --rainbow10: #ad0fd7;
+  --rainbow11: #d600d6;
+
+  --dark1: #425c66;
+  --dark2: #586f95;
+  --dark3: #6c81c3;
+  --dark4: #8294e4;
+  --dark5: #96a6f1;
+  --dark6: #acb9ed;
+  --dark7: #c0cbe6;
+  --dark8: #d6dee7;
+  --dark9: #eaf0f1;
+}
+
+.cm-s-custom {
+  * {
+    font-family: 'Operator Mono', 'Source Code Pro', Menlo, Monaco, Consolas, Courier New,
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial,
+      'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Osaka, Meiryo, 'メイリオ', 'MS Gothic',
+      'ＭＳ ゴシック', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  }
+
+  .cm-header {
+    color: var(--rainbow8);
+  }
+  .cm-quote {
+    color: var(--rainbow4);
+  }
+
+  .cm-keyword {
+    color: var(--rainbow10);
+  }
+
+  .cm-atom {
+    color: var(--rainbow9);
+  }
+
+  .cm-number {
+    color: var(--rainbow5);
+  }
+
+  .cm-def {
+    color: var(--rainbow8);
+  }
+
+  .cm-variable-3,
+  .cm-type {
+    color: var(--rainbow6);
+  }
+  .cm-comment {
+    color: var(--rainbow1);
+  }
+  .cm-string {
+    color: var(--rainbow11);
+  }
+  .cm-string-2 {
+    color: var(--rainbow1);
+  }
+  .cm-meta {
+    color: var(--dark2);
+  }
+  .cm-qualifier {
+    color: var(--dark2);
+  }
+  .cm-builtin {
+    color: var(--rainbow9);
+  }
+  .cm-bracket {
+    color: var(--dark3);
+  }
+  .cm-tag {
+    color: var(--rainbow5);
+  }
+  .cm-attribute {
+    color: var(--rainbow8);
+  }
+  .cm-hr {
+    color: var(--dark6);
+  }
+  .cm-link {
+    color: var(--rainbow8);
+  }
+
+  .cm-error {
+    color: var(--rainbow1);
+  }
+
+  .cm-variable,
+  .cm-punctuation,
+  .cm-property,
+  .cm-operator {
+  }
+
+  .cm-variable-2 {
+    color: var(--rainbow7);
+  }
+}
