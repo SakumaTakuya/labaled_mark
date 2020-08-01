@@ -1,35 +1,41 @@
 .markdown {
+  > * {
+    padding: 2rem;
+  }
+
   * {
     margin-bottom: 0;
     margin-top: 0;
   }
   h1 {
-    font-size: 2.5em;
+    font-size: xx-large;
+    padding-bottom: 3rem;
+    padding-top: 7rem;
   }
   h2 {
-    font-size: 2em;
-    padding-bottom: 0.25em;
-    padding-top: 0.5em;
+    font-size: x-large;
+    padding-bottom: 1rem;
+    padding-top: 3rem;
   }
   h3 {
-    font-size: 1.75em;
-    padding-bottom: 0.125em;
-    padding-top: 0.25em;
+    font-size: larger;
+    padding-bottom: 1.5rem;
+    padding-top: 2rem;
   }
   h4 {
-    font-size: 1.5em;
-    padding-bottom: 0.0625em;
-    padding-top: 0.125em;
+    font-size: large;
+    padding-bottom: 1.5rem;
+    padding-top: 2rem;
   }
   h5 {
-    font-size: 1.25em;
-    padding-bottom: 0.0625em;
-    padding-top: 0.125em;
+    font-size: medium;
+    padding-bottom: 1rem;
+    padding-top: 1.5rem;
   }
   h6 {
-    font-size: 1em;
-    padding-bottom: 0.0625em;
-    padding-top: 0.125em;
+    font-size: medium;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
   }
 
   h2,
@@ -43,19 +49,20 @@
       'Segoe UI Symbol';
   }
   h1,
-  figcaption,
-  table {
+  figcaption {
     text-align: center;
   }
   figure {
-    display: block;
-    padding: 1em auto;
+    padding: 1rem 0;
     img {
+      display: block;
+      margin: 0 auto;
       max-width: 100%;
     }
   }
   table {
-    padding: 1em auto;
+    margin: 0 auto;
+    padding: 1rem 0;
 
     thead {
       border-top: double 3px black;
@@ -70,11 +77,11 @@
     }
   }
   p {
-    text-indent: 1em;
+    text-indent: 1rem;
   }
   ol,
   ul {
-    padding: 0.5em auto;
+    padding: 0.5rem auto;
   }
 }
 

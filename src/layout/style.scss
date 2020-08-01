@@ -1,5 +1,9 @@
 $re100vh: calc(100vh - 3.5rem);
 
+body {
+  font-size: medium;
+}
+
 .editor {
   overflow-y: scroll;
   padding: 0px;
@@ -26,13 +30,11 @@ $re100vh: calc(100vh - 3.5rem);
 .markdown {
   height: $re100vh;
   overflow-y: scroll;
-  padding: 1em;
   word-wrap: break-word;
-  font-size: 11pt;
 }
 
 .a4 {
-  max-width: 210mm;
+  width: 210mm;
   min-height: 297mm;
 }
 
@@ -41,26 +43,15 @@ $re100vh: calc(100vh - 3.5rem);
 }
 
 @media print {
-  * {
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* IE, Edge 対応 */
-    scrollbar-width: none; /* Firefox 対応 */
-  }
-
-  *::-webkit-scrollbar {
-    /* Chrome, Safari 対応 */
-    display: none;
-  }
-
   .print_omit {
     display: none;
   }
 
-  .markdown {
-    padding: 0;
-  }
+  // .markdown {
+  //   padding: 0;
+  // }
 
   #print_area {
-    display: block;
+    display: inline;
   }
 }
