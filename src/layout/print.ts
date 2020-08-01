@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 export function initPrinter(target: string, printArea: string): void {
   $(target).click((event) => {
+    event.preventDefault();
     const print = $(event.target).data('target');
 
     if (typeof print == 'string') {

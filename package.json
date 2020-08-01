@@ -7,7 +7,7 @@
     "tsc": "node_modules/.bin/tsc",
     "build": "webpack --mode=development",
     "start": "webpack-dev-server --mode=development",
-    "deploy": "node_modules/.bin/gh-pages -d dist -b release"
+    "deploy": "node_modules/.bin/gh-pages -d dist"
   },
   "repository": {
     "type": "git",

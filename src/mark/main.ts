@@ -22,6 +22,8 @@ import { LatexLabeler } from './label';
 // スタイルシートを読み込む
 import './style.scss';
 
+import $ from 'jquery';
+
 const functions = {
   renderTablecell: new BorderTableRenderer(),
 } as RenderFunctions;
@@ -51,9 +53,11 @@ if (textArea != null && previewArea != null) {
     lineNumbers: true,
     lineWrapping: true,
     theme: 'custom',
+    dragDrop: true,
+    allowDropFileTypes: ['image/png', 'image/jpeg'],
   });
 
-  editArea.on('keyup', (_) => {
+  editArea.on('keyup', () => {
     const labeler = new LatexLabeler(/\\label{(.*?)}/g, /\\ref{(.*?)}/g);
     const labeledRenderer = new LabeledRenderer(labeler);
 
@@ -61,5 +65,48 @@ if (textArea != null && previewArea != null) {
 
     const md = marked(editArea.getValue());
     previewArea.innerHTML = labeler.resolveReference(md);
+  });
+
+  const url = 'https://api.imgur.com/3/image';
+
+  editArea.on('drop', (codemirror, event) => {
+    event.preventDefault();
+
+    const pos = codemirror.getCursor();
+    const reader = new FileReader();
+
+    reader.onload = (res) => {
+      $.ajax({
+        url: 'https://api.imgur.com/3/upload',
+        method: 'POST',
+        headers: {
+          Authorization: 'Client-ID 5ade943de98836a',
+        },
+        data: {
+          image: reader.result,
+          type: 'base64',
+        },
+      }).then(
+        (resp) => {
+          const link = resp?.data?.link as string;
+          codemirror.replaceRange(link ? `![](${link})` : '![failed to upload]()', pos);
+        },
+        () => {
+          console.log('ajax error');
+          codemirror.replaceRange('![failed to upload]()', pos);
+        }
+      );
+    };
+
+    reader.onerror = reader.onabort = () => {
+      console.log('read error');
+      codemirror.replaceRange('![failed to upload]()', pos);
+    };
+
+    const files = event.dataTransfer?.files || [];
+    for (let id = 0; id < files.length; id++) {
+      const element = files[id];
+      reader.readAsDataURL(element);
+    }
   });
 }
