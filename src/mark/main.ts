@@ -23,29 +23,32 @@ import { ImageUploaderForCodeMirror } from './imgUploader';
 // スタイルシートを読み込む
 import './style.scss';
 
-const clientId = '5ade943de98836a';
-const functions = {
-  renderTablecell: new BorderTableRenderer(),
-} as RenderFunctions;
+const baseClientId = '5ade943de98836a';
 
-marked.setOptions({
-  renderer: new CustomizableRenderer(functions),
-  highlight: function (code, language) {
-    const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
-    return hljs.highlightAuto(code, [validLanguage]).value;
-  },
-  pedantic: false,
-  gfm: true,
-  breaks: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false,
-});
+function initEditor(
+  textArea: HTMLTextAreaElement,
+  previewArea: HTMLElement,
+  clientId?: string
+): CodeMirror.Editor {
+  const functions = {
+    renderTablecell: new BorderTableRenderer(),
+  } as RenderFunctions;
 
-const textArea = document.getElementById('markdown_editor_textarea') as HTMLTextAreaElement;
-const previewArea = document.getElementById('markdown_preview');
-if (textArea != null && previewArea != null) {
+  marked.setOptions({
+    renderer: new CustomizableRenderer(functions),
+    highlight: function (code, language) {
+      const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+      return hljs.highlightAuto(code, [validLanguage]).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false,
+  });
+
   const editArea = CodeMirror.fromTextArea(textArea, {
     mode: {
       name: 'gfm',
@@ -58,7 +61,7 @@ if (textArea != null && previewArea != null) {
   });
   const uploader = new ImageUploaderForCodeMirror(
     editArea,
-    clientId,
+    clientId || baseClientId,
     '![uploading ...]()',
     '![failed to upload]()'
   );
@@ -81,4 +84,8 @@ if (textArea != null && previewArea != null) {
       uploader.upload(files);
     }
   });
+
+  return editArea;
 }
+
+export = { initEditor };
