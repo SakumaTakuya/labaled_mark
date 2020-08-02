@@ -22,6 +22,7 @@ import { ImageUploaderForCodeMirror } from './imgUploader';
 
 // スタイルシートを読み込む
 import './style.scss';
+import { numbering } from './codeNumbering';
 
 const baseClientId = '5ade943de98836a';
 
@@ -38,7 +39,8 @@ function initEditor(
     renderer: new CustomizableRenderer(functions),
     highlight: function (code, language) {
       const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
-      return hljs.highlightAuto(code, [validLanguage]).value;
+      const highlighted = hljs.highlightAuto(code, [validLanguage]).value;
+      return numbering(highlighted);
     },
     pedantic: false,
     gfm: true,

@@ -1,3 +1,26 @@
+.code {
+  display: flex;
+}
+
+.code-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.code-line {
+  display: flex;
+}
+
+.code-id {
+  width: 2.5em;
+}
+
+.code-bar {
+}
+.code-value {
+}
+
 .markdown {
   > * {
     padding: 2rem;
@@ -58,6 +81,10 @@
       display: block;
       margin: 0 auto;
       max-width: 100%;
+    }
+    pre {
+      border-top: double 3px black;
+      border-bottom: solid 1px black;
     }
   }
   table {

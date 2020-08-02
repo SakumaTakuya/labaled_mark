@@ -105,9 +105,9 @@ export class LabeledRenderer extends marked.Renderer
     const label = this.labeler.registerLabel(language || '', this.codeLabel);
     const html = super.code(code, label.text, isEscaped);
     return `<figure>
-                    <figcaption>ソースコード${label.index}.\t${label.caption}</figcaption>
-                    ${html}
-                </figure>`;
+                <figcaption>ソースコード${label.index}.\t${label.caption}</figcaption>
+                ${html}
+            </figure>`;
   }
 }
 
