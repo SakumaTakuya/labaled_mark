@@ -82,7 +82,8 @@ export class LabeledRenderer extends marked.Renderer
   table(header: string, body: string): string {
     if (body) body = `<tbody>${body}</tbody>`;
     const label = this.labeler.registerLabel(header, this.tableLabel);
-    return `<table>
+    return `<figure>
+              <table>
                     <caption>
                         表${label.index}.\t${label.caption}
                     </caption>
@@ -90,7 +91,8 @@ export class LabeledRenderer extends marked.Renderer
                         ${label.text}
                     </thead>
                         ${body}
-                </table>`;
+                </table>
+            </figure>`;
   }
 
   image(href: string | null, title: string | null, text: string): string {
