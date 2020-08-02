@@ -1,6 +1,5 @@
 import CodeMirror from 'codemirror';
 import { readFileAsDataURL } from './util';
-import { type } from 'jquery';
 
 export class ImageUploaderForCodeMirror {
   static url = 'https://api.imgur.com/3/image';
