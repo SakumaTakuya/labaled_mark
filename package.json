@@ -27,7 +27,7 @@
     "@types/jquery": "^3.5.1",
     "@types/marked": "^1.1.0",
     "bootstrap": "^4.5.0",
-    "codemirror": "^5.56.0",
+    "codemirror": "^5.58.2",
     "highlight": "^0.2.4",
     "highlight.js": "^10.1.2",
     "jquery": "^3.5.1",
